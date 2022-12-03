@@ -26,8 +26,9 @@ st.markdown("Welcome to *_Algaeia_*! "
             "Check out our documentation on ([GitHub](https://github.com/nathanyaqueby/dodo-hackathon))")
 
 # col1, col2, col3 = st.columns((1,1,2))
-
+st.sidebar.image("algaeia.png", use_column_width=True)
 st.sidebar.title("VR environment generator")
+
 with st.sidebar.form(key='Form1'):
     Options = ["a-box","a-sphere","a-cylinder","a-plane","a-cone","a-torus-knot","a-ring","a-dodecahedron","a-icosahedron"]
     choose = st.selectbox("Pick a primitive:", Options)
