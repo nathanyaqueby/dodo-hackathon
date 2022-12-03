@@ -30,18 +30,18 @@ st.markdown("Welcome to *_Algaeia_*! "
 st.sidebar.title("VR environment generator")
 with st.sidebar.form(key='Form1'):
     Options = ["a-box","a-sphere","a-cylinder","a-plane","a-cone","a-torus-knot","a-ring","a-dodecahedron","a-icosahedron"]
-    choose = st.sidebar.selectbox("Pick a primitive:", Options)
+    choose = st.selectbox("Pick a primitive:", Options)
 
     Options2 = ["ambient","point"]
-    choose2 = st.sidebar.selectbox("Adjust lighting:", Options2)
+    choose2 = st.selectbox("Adjust lighting:", Options2)
 
     Options3 = ["egypt","forest","goaland","yavapai","goldmine","threetowers","poison","arches"]
-    choose3 = st.sidebar.selectbox("Choose Environment:", Options3)
+    choose3 = st.selectbox("Choose Environment:", Options3)
 
     Options4 = ["yes","no"]
-    choose4 = st.sidebar.radio("Add fog:", Options4)
+    choose4 = st.radio("Add fog:", Options4)
 
-    generator = st.sidebar.button('Generate environment ⚡')
+    generator = st.button('Generate environment ⚡')
 
 
 def audiorec_demo_app():
@@ -56,7 +56,7 @@ def audiorec_demo_app():
     # STREAMLIT AUDIO RECORDER Instance
     val = st_audiorec()
     # web component returns arraybuffer from WAV-blob
-    st.write('Audio data received in the Python backend will appear below this message ...')
+    # st.write('Audio data received in the Python backend will appear below this message ...')
 
     if isinstance(val, dict):  # retrieve audio data
         with st.spinner('retrieving audio-recording...'):
@@ -69,7 +69,7 @@ def audiorec_demo_app():
 
         # wav_bytes contains audio data in format to be further processed
         # display audio data as received on the Python side
-        st.audio(wav_bytes, format='audio/wav')
+        # st.audio(wav_bytes, format='audio/wav')
 
         return wav_bytes
 
@@ -90,7 +90,6 @@ def writeHelp2():
 
 
 if __name__ == '__main__':
-    audio_file = audiorec_demo_app()
 
     if generator:
 
@@ -98,9 +97,9 @@ if __name__ == '__main__':
 
         if choose == "a-box":
             if choose4 == "yes":
-                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound: url(river.mp3); autoplay: true></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross">'+fog+'</a-entity></a-scene></body></html>',height=500)
+                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound: url(river.mp3); autoplay: true></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross">'+fog+'</a-entity></a-scene></body></html>',height=600)
             else:
-                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound: url(river.mp3); autoplay: true></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity></a-scene></body></html>', height=500)
+                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound: url(river.mp3); autoplay: true></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity></a-scene></body></html>', height=600)
             # writeHelp1()
             # st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
             # st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
@@ -108,3 +107,5 @@ if __name__ == '__main__':
             # if choose4 == "yes":
             #     st.write(fog)
             # writeHelp2()
+    
+    audio_file = audiorec_demo_app()
