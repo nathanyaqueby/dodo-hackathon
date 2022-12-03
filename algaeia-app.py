@@ -22,7 +22,7 @@ st.set_page_config(
 )
 
 st.title('Algaeia')
-st.markdown("Welcome to **_Algaeia_**"
+st.markdown("Welcome to *_Algaeia_*! "
             "Check out our documentation on ([GitHub](https://github.com/nathanyaqueby/dodo-hackathon))")
 
 col1, col2, col3 = st.columns((1,1,2))
@@ -92,10 +92,10 @@ if __name__ == '__main__':
 
         if choose == "a-box":
             if choose4 == "yes":
-                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross">'+fog+'</a-entity></a-scene></body></html>', width=600, height=300)
+                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross">'+fog+'</a-entity></a-scene></body></html>')
             else:
-                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity></a-scene></body></html>', width=600, height=300)
-            writeHelp1()
+                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity></a-scene></body></html>')
+            # writeHelp1()
             st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
             st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
             st.write('<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity>')
