@@ -70,6 +70,7 @@ def audiorec_demo_app():
         # wav_bytes contains audio data in format to be further processed
         # display audio data as received on the Python side
         with st.sidebar.form(key='Form2'):
+            st.sidebar.title("Add soundscape")
             st.audio(wav_bytes, format='audio/wav')
 
         return wav_bytes
