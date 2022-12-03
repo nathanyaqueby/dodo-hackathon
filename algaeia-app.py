@@ -22,7 +22,7 @@ st.set_page_config(
 )
 
 st.title('Algaeia')
-st.markdown("Welcome to **_Algaeia_**",
+st.markdown("Welcome to **_Algaeia_**"
             "Check out our documentation on ([GitHub](https://github.com/nathanyaqueby/dodo-hackathon))")
 
 col1, col2, col3 = st.columns((1,1,2))
