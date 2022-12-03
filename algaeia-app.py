@@ -97,17 +97,19 @@ if __name__ == '__main__':
 
         fog = '<a-scene fog="type: exponential; color: #AAA"></a-scene>'
 
+        audio_file = "MARS-20221130T000000Z-2kHz-short_edit.mp3"
+
         # if choose == "a-box":
         if choose4 == "yes":
-            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: url(river.mp3); on: click"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: url(river.mp3); autoplay: true">'+fog+'</a-entity></a-scene></body></html>',height=600)
+            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: '+audio_file+'; autoplay: true" material="shader: ocean; color: blue; wave-height: 10">'+fog+'</a-entity></a-scene></body></html>',height=600)
         else:
-            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: url(river.mp3); autoplay: true"></><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: url(river.mp3); autoplay: true"></a-entity></a-scene></body></html>', height=600)
-        # writeHelp1()
-        # st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
-        # st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
-        # st.write('<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity>')
-        # if choose4 == "yes":
-        #     st.write(fog)
-        # writeHelp2()
+            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: '+audio_file+'; autoplay: true" material="shader: ocean; color: blue; wave-height: 10"></a-entity></a-scene></body></html>', height=600)
+            # writeHelp1()
+            # st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
+            # st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
+            # st.write('<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity>')
+            # if choose4 == "yes":
+            #     st.write(fog)
+            # writeHelp2()
     
     audio_file = audiorec_demo_app()
