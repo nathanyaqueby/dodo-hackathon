@@ -25,19 +25,23 @@ st.title('Algaeia')
 st.markdown("Welcome to *_Algaeia_*! "
             "Check out our documentation on ([GitHub](https://github.com/nathanyaqueby/dodo-hackathon))")
 
-col1, col2, col3 = st.columns((1,1,2))
+# col1, col2, col3 = st.columns((1,1,2))
 
-Options = ["a-box","a-sphere","a-cylinder","a-plane","a-cone","a-torus-knot","a-ring","a-dodecahedron","a-icosahedron"]
-choose = st.sidebar.selectbox("Pick a primitive:", Options)
+st.sidebar.title("VR environment generator")
+with st.sidebar.form(key='Form1'):
+    Options = ["a-box","a-sphere","a-cylinder","a-plane","a-cone","a-torus-knot","a-ring","a-dodecahedron","a-icosahedron"]
+    choose = st.sidebar.selectbox("Pick a primitive:", Options)
 
-Options2 = ["ambient","point"]
-choose2 = st.sidebar.selectbox("Adjust lighting:", Options2)
+    Options2 = ["ambient","point"]
+    choose2 = st.sidebar.selectbox("Adjust lighting:", Options2)
 
-Options3 = ["egypt","forest","goaland","yavapai","goldmine","threetowers","poison","arches"]
-choose3 = st.sidebar.selectbox("Choose Environment:", Options3)
+    Options3 = ["egypt","forest","goaland","yavapai","goldmine","threetowers","poison","arches"]
+    choose3 = st.sidebar.selectbox("Choose Environment:", Options3)
 
-Options4 = ["no","yes"]
-choose4 = st.sidebar.selectbox("Want fog:", Options4)
+    Options4 = ["yes","no"]
+    choose4 = st.sidebar.radio("Add fog:", Options4)
+
+    generator = st.sidebar.button('Generate environment ⚡')
 
 
 def audiorec_demo_app():
@@ -65,7 +69,10 @@ def audiorec_demo_app():
 
         # wav_bytes contains audio data in format to be further processed
         # display audio data as received on the Python side
-        st.audio(wav_bytes, format='audio/wav')
+        with st.sidebar.form(key='Form2'):
+            st.audio(wav_bytes, format='audio/wav')
+
+        return wav_bytes
 
 def writeHelp1():
     st.write('Corresponding Code:')
@@ -84,17 +91,17 @@ def writeHelp2():
 
 
 if __name__ == '__main__':
-    audiorec_demo_app()
+    audio_file = audiorec_demo_app()
 
-    if st.sidebar.button('Generate Ocean environment'):
+    if generator:
 
         fog = '<a-scene fog="type: exponential; color: #AAA"></a-scene>'
 
         if choose == "a-box":
             if choose4 == "yes":
-                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross">'+fog+'</a-entity></a-scene></body></html>',height=500)
+                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound: url(river.mp3); autoplay: true></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross">'+fog+'</a-entity></a-scene></body></html>',height=500)
             else:
-                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity></a-scene></body></html>', height=500)
+                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound: url(river.mp3); autoplay: true></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity></a-scene></body></html>', height=500)
             # writeHelp1()
             # st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
             # st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
