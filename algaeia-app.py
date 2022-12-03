@@ -41,7 +41,7 @@ with st.sidebar.form(key='Form1'):
     Options4 = ["yes","no"]
     choose4 = st.radio("Add fog:", Options4)
 
-    generator = st.button('Generate environment ⚡')
+    generator = st.form_submit_button('Generate environment ⚡')
 
 
 def audiorec_demo_app():
