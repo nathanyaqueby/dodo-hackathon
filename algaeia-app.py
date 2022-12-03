@@ -83,21 +83,22 @@ def writeHelp2():
     st.write('</body></html>') 
 
 
-audiorec_demo_app()
+if __name__ == '__main__':
+    audiorec_demo_app()
 
-if st.sidebar.button('Generate Ocean environment'):
+    if st.sidebar.button('Generate Ocean environment'):
 
-    fog = '<a-scene fog="type: exponential; color: #AAA"></a-scene>'
+        fog = '<a-scene fog="type: exponential; color: #AAA"></a-scene>'
 
-    if choose == "a-box":
-        if choose4 == "yes":
-            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross">'+fog+'</a-entity></a-scene></body></html>', width=600, height=300)
-        else:
-            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity></a-scene></body></html>', width=600, height=300)
-        writeHelp1()
-        st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
-        st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
-        st.write('<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity>')
-        if choose4 == "yes":
-            st.write(fog)
-        writeHelp2()
+        if choose == "a-box":
+            if choose4 == "yes":
+                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross">'+fog+'</a-entity></a-scene></body></html>', width=600, height=300)
+            else:
+                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity></a-scene></body></html>', width=600, height=300)
+            writeHelp1()
+            st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
+            st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
+            st.write('<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity>')
+            if choose4 == "yes":
+                st.write(fog)
+            writeHelp2()
