@@ -135,12 +135,12 @@ if __name__ == '__main__':
                                 '<a-assets>'
                                     # '<a-asset-item id="Cube.008" src="'+cube_path+'"></a-asset-item>'
                                     # '<a-asset-item id="propeller" src="'+prop_path+'"></a-asset-item>'
-                                    '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
+                                    # '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
                                     '<audio id="background" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>'
                                 '</a-assets>'
 
                                 '<a-assets>'
-                                    # '<a-asset-item id="Cube.008" src="'+cube_path+'"></a-asset-item>'
+                                    '<a-asset-item id="Cube.008" src="'+cube_path+'"></a-asset-item>'
                                     '<a-asset-item id="propeller" src="'+prop_path+'"></a-asset-item>'
                                 '</a-assets>'
 
@@ -150,7 +150,7 @@ if __name__ == '__main__':
 
                                 
                                 # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
-                                '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
+                                # '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
 
                                 # new or additional entities
                                 '<a-entity position="0 0 5"><a-camera><a-cursor></a-cursor></a-camera></a-entity>'
