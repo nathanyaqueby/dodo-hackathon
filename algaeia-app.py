@@ -31,18 +31,22 @@ st.set_page_config(
 )
 
 # st.title('Algaeia')
-st.markdown("Welcome to *_Algaeia_*! Generate a VR world using the sidebar on the left and explore the soundscape by moving closer or further away from objects. "
+st.markdown("Welcome to *_Algaeia_*! Generate a VR world using the sidebar (left) and explore the soundscape by moving closer or further away from objects. "
             "Read more about our project on [GitHub](https://github.com/nathanyaqueby/dodo-hackathon)")
 
 # col1, col2, col3 = st.columns((1,1,2))
 st.sidebar.image("algaeia.png", use_column_width=True)
 
-st.markdown(f'''
-    <style>
-        section[data-testid="stSidebar"] .css-ng1t4o {{width: 16rem;}}
-        section[data-testid="stSidebar"] .css-1d391kg {{width: 16rem;}}
-    </style>
-''',unsafe_allow_html=True)
+st.markdown(
+    """
+<style>
+.streamlit-expanderHeader {
+    font-size: x-large;
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
 
 with st.sidebar.form(key='Form1'):
     st.title("🌏 VR world generator")
@@ -61,6 +65,11 @@ with st.sidebar.form(key='Form1'):
 
     generator = st.form_submit_button('Generate environment ⚡')
 
+
+
+#####################
+## VR & Soundscape ##
+#####################
 
 def audiorec_demo_app():
 
@@ -112,70 +121,78 @@ def writeHelp2():
     st.write('</body></html>') 
 
 
+###############
+## Dashboard ##
+###############
+
 if __name__ == '__main__':
 
     if generator:
 
-        fog = '<a-scene fog="type: exponential; color: #AAA"></a-scene>'
+        with st.spinner('Loading...'):
 
-        audio_file = "hckthn1_sessione.wav"
-        
-        if choose4 == "yes":
-            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
-                            # '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>'
-                            '<script src="https://unpkg.com/aframe-sprite-particles-component@^0.5.0/aframe-sprite-particles-component.js"></script>'
-                            '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>'
-                            '<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>'
-                            '<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>'
-                            '</head><body><audio controls autoplay><source src="hckthn1_sessione.wav" type="audio/wav">Your browser does not support the audio element.</audio><a-scene>'
+            fog = '<a-scene fog="type: exponential; color: #AAA"></a-scene>'
 
-                            # asset management system
-                            '<a-assets>'
-                            #     '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
-                            #     '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
-                                '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
-                                '<audio id="background" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>'
-                            '</a-assets>'
+            audio_file = "hckthn1_sessione.wav"
+            
+            if choose4 == "yes":
+                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
+                                # '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>'
+                                '<script src="https://unpkg.com/aframe-sprite-particles-component@^0.5.0/aframe-sprite-particles-component.js"></script>'
+                                '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>'
+                                '<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>'
+                                '<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>'
+                                '</head><body><audio controls autoplay><source src="hckthn1_sessione.wav" type="audio/wav">Your browser does not support the audio element.</audio><a-scene>'
 
-                            '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
+                                # asset management system
+                                '<a-assets>'
+                                #     '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
+                                #     '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
+                                    '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
+                                    '<audio id="background" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>'
+                                '</a-assets>'
 
-                            # new or additional entities
-                            '<a-entity position="0 0 5"><a-camera><a-cursor></a-cursor></a-camera></a-entity>'
+                                '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
+                                '<'+choose+' position="-5 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
+                                '<'+choose+' position="-9 0.5 -6" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
 
-                            '<a-sound src="#waves" autoplay="true"></a-sound>'
-                            # '<a-sound src="#background" autoplay="true"></a-sound>'
-                            # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
-                            # '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
+                                # new or additional entities
+                                '<a-entity position="0 0 5"><a-camera><a-cursor></a-cursor></a-camera></a-entity>'
 
-                            '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
-                            '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: hckthn1_sessione.wav; autoplay: true; loop: true">'+fog+'</a-entity>'
-                            '</a-scene></body></html>', height=600)
-        else:
-            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
-                            # '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>'
-                            '<script src="https://unpkg.com/aframe-sprite-particles-component@^0.5.0/aframe-sprite-particles-component.js"></script>'
-                            '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>'
-                            '<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>'
-                            '<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>'
-                            '</head><body><a-scene>'
+                                '<a-sound src="#waves" autoplay="true"></a-sound>'
+                                # '<a-sound src="#background" autoplay="true"></a-sound>'
+                                # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
+                                # '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
 
-                            # asset management system ###########################################################################################
-                            '<a-assets>'
-                            #     '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
-                            #     '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
-                                '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
-                            '</a-assets>'
+                                '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
+                                '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: hckthn1_sessione.wav; autoplay: true; loop: true">'+fog+'</a-entity>'
+                                '</a-scene></body></html>', height=600)
+            else:
+                components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
+                                # '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>'
+                                '<script src="https://unpkg.com/aframe-sprite-particles-component@^0.5.0/aframe-sprite-particles-component.js"></script>'
+                                '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>'
+                                '<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>'
+                                '<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>'
+                                '</head><body><a-scene>'
 
-                            '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></>'
+                                # asset management system ###########################################################################################
+                                '<a-assets>'
+                                #     '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
+                                #     '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
+                                    '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
+                                '</a-assets>'
 
-                            # new or additional entities #########################################################################################
-                            '<a-sound src="#waves" autoplay="true"></a-sound>'
-                            # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
-                            # '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
+                                '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></>'
 
-                            '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
-                            '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: '+audio_file+'; autoplay: true"></a-entity>'
-                            '</a-scene></body></html>', height=700)
+                                # new or additional entities #########################################################################################
+                                '<a-sound src="#waves" autoplay="true"></a-sound>'
+                                # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
+                                # '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
+
+                                '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
+                                '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: '+audio_file+'; autoplay: true"></a-entity>'
+                                '</a-scene></body></html>', height=700)
             # writeHelp1()
             # st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
             # st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
@@ -185,3 +202,11 @@ if __name__ == '__main__':
             # writeHelp2()
     
         audio_file, audiorec = audiorec_demo_app()
+    
+    with st.expander("🌊 An immersive digital speculative underwater museum"):
+        st.markdown("""
+                The project focuses on anthropogenic noise pollution affecting the underwater life, by analyzing selected data produced by maritime traffic in the Pacific ocean.<br>
+                The project is presented as a work in progress developed during the DODO Hackathon: it would like to be an invitation for visitors to dive into a speculative underwater museum, where it is possible to approach the artifacts and listen to noise produced by ships crossing the Pacific Ocean.<br>
+                In this digital environment, the objects represent both visualization and sonification of selected data by the dataset Pacific Sound (https://doi.org/10.1109/OCEANS.2016.7761363). <br>
+                The project would like to raise reflections about anthropogenic activities affecting aquatic environments, creating awareness about noise pollution, often inaudible to humans, an attempt to make more visible and hearable its impact of non-human species.
+                """)
