@@ -113,17 +113,19 @@ if __name__ == '__main__':
                             #     '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
                             #     '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
                                 '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
+                                '<audio id="background" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>'
                             '</a-assets>'
 
                             '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></'+choose+'>'
 
                             # new or additional entities
                             '<a-sound src="#waves" autoplay="true"></a-sound>'
+                            '<a-sound src="#background" autoplay="true"></a-sound>'
                             # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
                             # '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
 
                             '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
-                            '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: hckthn1_sessione.wav; autoplay: true; preload: auto">'+fog+'</a-entity>'
+                            '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: hckthn1_sessione.wav; autoplay: true">'+fog+'</a-entity>'
                             '</a-scene></body></html>', height=600)
         else:
             components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
