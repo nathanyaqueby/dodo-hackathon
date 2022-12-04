@@ -37,8 +37,15 @@ st.markdown("Welcome to *_Algaeia_*! "
 # col1, col2, col3 = st.columns((1,1,2))
 st.sidebar.image("algaeia.png", use_column_width=True)
 
+st.markdown(f'''
+    <style>
+        section[data-testid="stSidebar"] .css-ng1t4o {{width: 14rem;}}
+        section[data-testid="stSidebar"] .css-1d391kg {{width: 14rem;}}
+    </style>
+''',unsafe_allow_html=True)
+
 with st.sidebar.form(key='Form1'):
-    st.title("VR environment generator")
+    st.title("🌏 VR world generator")
 
     Options = ["a-box","a-sphere","a-cylinder","a-plane","a-cone","a-torus-knot","a-ring","a-dodecahedron","a-icosahedron"]
     choose = st.selectbox("Pick a primitive:", Options)
@@ -57,32 +64,37 @@ with st.sidebar.form(key='Form1'):
 
 def audiorec_demo_app():
 
-    parent_dir = os.path.dirname(os.path.abspath(__file__))
-    # Custom REACT-based component for recording client audio in browser
-    build_dir = os.path.join(parent_dir, "st_audiorec/frontend/build")
-    # specify directory and initialize st_audiorec object functionality
-    st_audiorec = components.declare_component("st_audiorec", path=build_dir)
+    with st.sidebar.form(key='Form2'):
+        st.title("🎧 Soundscape generator")
 
+        parent_dir = os.path.dirname(os.path.abspath(__file__))
+        # Custom REACT-based component for recording client audio in browser
+        build_dir = os.path.join(parent_dir, "st_audiorec/frontend/build")
+        # specify directory and initialize st_audiorec object functionality
+        st_audiorec = components.declare_component("st_audiorec", path=build_dir)
 
-    # STREAMLIT AUDIO RECORDER Instance
-    val = st_audiorec()
-    # web component returns arraybuffer from WAV-blob
-    # st.write('Audio data received in the Python backend will appear below this message ...')
+        wav_bytes = 0
+        # STREAMLIT AUDIO RECORDER Instance
+        val = st_audiorec()
+        # web component returns arraybuffer from WAV-blob
+        # st.write('Audio data received in the Python backend will appear below this message ...')
 
-    if isinstance(val, dict):  # retrieve audio data
-        with st.spinner('retrieving audio-recording...'):
-            ind, val = zip(*val['arr'].items())
-            ind = np.array(ind, dtype=int)  # convert to np array
-            val = np.array(val)             # convert to np array
-            sorted_ints = val[ind]
-            stream = BytesIO(b"".join([int(v).to_bytes(1, "big") for v in sorted_ints]))
-            wav_bytes = stream.read()
+        if isinstance(val, dict):  # retrieve audio data
+            with st.spinner('retrieving audio-recording...'):
+                ind, val = zip(*val['arr'].items())
+                ind = np.array(ind, dtype=int)  # convert to np array
+                val = np.array(val)             # convert to np array
+                sorted_ints = val[ind]
+                stream = BytesIO(b"".join([int(v).to_bytes(1, "big") for v in sorted_ints]))
+                wav_bytes = stream.read()
 
-        # wav_bytes contains audio data in format to be further processed
-        # display audio data as received on the Python side
-        # st.audio(wav_bytes, format='audio/wav')
+            # wav_bytes contains audio data in format to be further processed
+            # display audio data as received on the Python side
+            # st.audio(wav_bytes, format='audio/wav')
+        
+        audiorec = st.form_submit_button('Create soundscape ⚡')
 
-        return wav_bytes
+        return wav_bytes, audiorec
 
 def writeHelp1():
     st.write('Corresponding Code:')
@@ -163,7 +175,7 @@ if __name__ == '__main__':
 
                             '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
                             '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: '+audio_file+'; autoplay: true"></a-entity>'
-                            '</a-scene></body></html>', height=600)
+                            '</a-scene></body></html>', height=700)
             # writeHelp1()
             # st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
             # st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
@@ -172,4 +184,4 @@ if __name__ == '__main__':
             #     st.write(fog)
             # writeHelp2()
     
-    audio_file = audiorec_demo_app()
+        audio_file, audiorec = audiorec_demo_app()
