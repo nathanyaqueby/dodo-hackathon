@@ -3,6 +3,7 @@ import streamlit as st
 from io import BytesIO
 import os
 import numpy as np
+import webbrowser
 
 
 st.set_page_config(
@@ -31,7 +32,8 @@ st.set_page_config(
 )
 
 # st.title('Algaeia')
-st.markdown("Welcome to *_Algaeia_*! Generate a VR world using the sidebar (left) and explore the soundscape with your arrow keys. "
+st.markdown("Welcome to *_Algaeia_*! Click the button below to visit our immersive museum."
+            " You can also generate a VR world using the sidebar (left) and explore the soundscape with your arrow keys. "
             "Read more about our project on [GitHub](https://github.com/nathanyaqueby/dodo-hackathon)")
 
 # col1, col2, col3 = st.columns((1,1,2))
@@ -47,6 +49,11 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
+
+url = 'https://www.sararutz.ch/DODO/index.html'
+
+if st.button('Visit the VR museum'):
+    webbrowser.open_new_tab(url)
 
 with st.sidebar.form(key='Form1'):
     st.title("🌏 VR world generator")
@@ -217,7 +224,7 @@ if __name__ == '__main__':
     
     else:
 
-        components.html('<embed src="https://www.sararutz.ch/DODO/index.html" style="width: 100%; height: 800%">')
+        components.html('<iframe src="https://www.sararutz.ch/DODO/index.html" style="width:100%; height: 100%;"></iframe>')
 
         # components.html(f'''
         #             <!doctype html>
