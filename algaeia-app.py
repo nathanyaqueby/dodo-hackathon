@@ -224,7 +224,7 @@ if __name__ == '__main__':
     
     else:
 
-        components.html('<iframe src="https://www.sararutz.ch/DODO/index.html" style="width:100%; height: 100%;"></iframe>')
+        components.html('<iframe src="https://www.sararutz.ch/DODO/index.html" style="position: absolute; height: 100%; width: 100%; border: none"></iframe>', height=700)
 
         # components.html(f'''
         #             <!doctype html>
