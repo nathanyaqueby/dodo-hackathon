@@ -120,7 +120,7 @@ if __name__ == '__main__':
 
             audio_file = "hckthn1_sessione.wav"
             cube_path = os.path.join("assets", "Cube.008.gltf")
-            prop_path = os.path.join("assets", "propeller.gltf")
+            prop_path = os.path.join("assets", "propeller.glb")
             
             if choose4 == "yes":
                 components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
@@ -140,7 +140,7 @@ if __name__ == '__main__':
                                 '</a-assets>'
 
                                 '<a-assets>'
-                                    '<a-asset-item id="Cube.008" src="'+cube_path+'"></a-asset-item>'
+                                    # '<a-asset-item id="Cube.008" src="'+cube_path+'"></a-asset-item>'
                                     '<a-asset-item id="propeller" src="'+prop_path+'"></a-asset-item>'
                                 '</a-assets>'
 
@@ -149,7 +149,7 @@ if __name__ == '__main__':
                                 '<'+choose+' position="-9 0.5 -6" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
 
                                 
-                                '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
+                                # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
                                 '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
 
                                 # new or additional entities
