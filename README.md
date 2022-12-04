@@ -1,11 +1,22 @@
 # Algaeia 🐳
 
+A speculative, immersive, digital underwater museum. 
+
+The project focuses on anthropogenic noise pollution affecting the underwater life, by analyzing selected data produced by maritime traffic in the Pacific ocean.
+
+Algaeia is presented as a work in progress developed during the DODO Hackathon: it would like to be an invitation for visitors to dive into a speculative underwater museum, where it is possible to approach the artifacts and listen to noise produced by ships crossing the Pacific Ocean.
+
+In this digital environment, the objects represent both visualization and sonification of selected data by the dataset Pacific Sound (https://doi.org/10.1109/OCEANS.2016.7761363.).
+
+The project would like to raise reflections about anthropogenic activities affecting aquatic environments, creating awareness about noise pollution, often inaudible to humans, an attempt to make more visible and hearable its impact of non-human species.
+
 Developed during the DODO Deepwaters of Digital Ocean Hackathon 2022.
 
 ## 📌 How to run
 - Go to [this link](https://nathanyaqueby-dodo-hackathon-algaeia-app-pvgkk7.streamlit.app/)
+- Make sure you have your audio turned on
+- Dive into our immersive [VR Museum]()
 - Adjust the presets in the sidebar to generate an environment
-- (Optional + coming soon) record a sound and listen to the AI-generated version of it from the nearest object
 
 ## ✨ Team
 - Indiara di Benedetto
