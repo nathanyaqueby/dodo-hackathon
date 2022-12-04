@@ -13,11 +13,20 @@ st.set_page_config(
     menu_items={
         'Get Help': 'https://github.com/nathanyaqueby/dodo-hackathon',
         'Report a bug': "https://github.com/nathanyaqueby/dodo-hackathon",
-        'About': "Our mission is simple. To help people with dementia remember daily objects and their loved ones,"
-                 " DigiMemoir takes pictures of objects & people and stores the stories associated with them. "
-                 "Whenever the person focuses on an object or person, the digital memory will start talking about it, "
-                 "reminding the person of the history behind that object or person. Developed during the Roche"
-                 " Dementia Hackathon Challenge by Team 4 (Women in AI and Robotics)."
+        'About': "An immersive digital speculative underwater museum. "
+        "The project focuses on anthropogenic noise pollution affecting the underwater life, "
+        "by analyzing selected data produced by maritime traffic in the Pacific ocean."
+
+        "The project is presented as a work in progress developed during the DODO Hackathon: "
+        "it would like to be an invitation for visitors to dive into a speculative underwater museum, "
+        "where it is possible to approach the artifacts and listen to noise produced by ships crossing the Pacific Ocean."
+
+        "In this digital environment, the objects represent both visualization and sonification of selected data by the dataset "
+        "Pacific Sound (https://doi.org/10.1109/OCEANS.2016.7761363.)."
+
+        "The project would like to raise reflections about anthropogenic activities affecting aquatic environments, "
+        "creating awareness about noise pollution, often inaudible to humans, an attempt to make more visible and hearable its "
+        "impact of non-human species. Developed by Team Algaeia (Sara Rutz, Nathanya Queby Satrani, Indiara Di Benedetto)."
     }
 )
 
@@ -106,7 +115,7 @@ if __name__ == '__main__':
                             '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>'
                             '<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>'
                             '<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>'
-                            '</head><body><a-scene>'
+                            '</head><body><audio controls autoplay><source src="hckthn1_sessione.wav" type="audio/wav">Your browser does not support the audio element.</audio><a-scene>'
 
                             # asset management system
                             '<a-assets>'
@@ -116,16 +125,16 @@ if __name__ == '__main__':
                                 '<audio id="background" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>'
                             '</a-assets>'
 
-                            '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></'+choose+'>'
+                            '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true"></'+choose+'>'
 
                             # new or additional entities
                             '<a-sound src="#waves" autoplay="true"></a-sound>'
-                            '<a-sound src="#background" autoplay="true"></a-sound>'
+                            # '<a-sound src="#background" autoplay="true"></a-sound>'
                             # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
                             # '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
 
                             '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
-                            '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: hckthn1_sessione.wav; autoplay: true">'+fog+'</a-entity>'
+                            '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: hckthn1_sessione.wav; autoplay: true; loop: true">'+fog+'</a-entity>'
                             '</a-scene></body></html>', height=600)
         else:
             components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
