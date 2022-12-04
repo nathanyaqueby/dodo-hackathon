@@ -31,16 +31,16 @@ st.set_page_config(
 )
 
 # st.title('Algaeia')
-st.markdown("Welcome to *_Algaeia_*! "
-            "Check out our documentation on ([GitHub](https://github.com/nathanyaqueby/dodo-hackathon))")
+st.markdown("Welcome to *_Algaeia_*! Generate a VR world using the sidebar on the left and explore the soundscape by moving closer or further away from objects. "
+            "Read more about our project on [GitHub](https://github.com/nathanyaqueby/dodo-hackathon)")
 
 # col1, col2, col3 = st.columns((1,1,2))
 st.sidebar.image("algaeia.png", use_column_width=True)
 
 st.markdown(f'''
     <style>
-        section[data-testid="stSidebar"] .css-ng1t4o {{width: 14rem;}}
-        section[data-testid="stSidebar"] .css-1d391kg {{width: 14rem;}}
+        section[data-testid="stSidebar"] .css-ng1t4o {{width: 16rem;}}
+        section[data-testid="stSidebar"] .css-1d391kg {{width: 16rem;}}
     </style>
 ''',unsafe_allow_html=True)
 
