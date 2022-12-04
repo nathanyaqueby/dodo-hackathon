@@ -98,12 +98,55 @@ if __name__ == '__main__':
         fog = '<a-scene fog="type: exponential; color: #AAA"></a-scene>'
 
         audio_file = "MARS-20221130T000000Z-2kHz-short_edit.mp3"
-
-        # if choose == "a-box":
+        
         if choose4 == "yes":
-            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></a-box><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: '+audio_file+'; autoplay: true" material="shader: ocean; color: blue; wave-height: 10">'+fog+'</a-entity></a-scene></body></html>',height=600)
+            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
+                            '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>'
+                            '<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>'
+                            '<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>'
+                            '</head><body><a-scene>'
+
+                            # asset management system
+                            '<a-assets>'
+                                '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
+                                '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
+                                '<audio id="waves" src='+audio_file+'></audio>'
+                            '</a-assets>'
+
+                            '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></'+choose+'>'
+
+                            # new or additional entities
+                            '<a-sound src="#waves"></a-sound>'
+                            '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
+                            '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
+
+                            '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
+                            '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: '+audio_file+'; autoplay: true">'+fog+'</a-entity>'
+                            '</a-scene></body></html>', height=600)
         else:
-            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script><script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script></head><body><a-scene><'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></><a-light type='+choose2+' color="red" position="0 5 0"></a-light> <a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: '+audio_file+'; autoplay: true" material="shader: ocean; color: blue; wave-height: 10"></a-entity></a-scene></body></html>', height=600)
+            components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
+                            '<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>'
+                            '<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>'
+                            '<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>'
+                            '</head><body><a-scene>'
+
+                            # asset management system
+                            '<a-assets>'
+                                '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
+                                '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
+                                '<audio id="waves" src='+audio_file+'></audio>'
+                            '</a-assets>'
+
+                            '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></>'
+
+                            # new or additional entities
+                            '<a-sound src="#waves"></a-sound>'
+                            '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
+                            '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
+
+                            '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
+                            '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: '+audio_file+'; autoplay: true"></a-entity>'
+                            '</a-scene></body></html>', height=600)
             # writeHelp1()
             # st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
             # st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
