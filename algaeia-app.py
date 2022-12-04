@@ -125,7 +125,7 @@ if __name__ == '__main__':
                                 '<audio id="background" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>'
                             '</a-assets>'
 
-                            '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true"></'+choose+'>'
+                            '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true"></'+choose+'>'
 
                             # new or additional entities
                             '<a-sound src="#waves" autoplay="true"></a-sound>'
