@@ -125,9 +125,11 @@ if __name__ == '__main__':
                                 '<audio id="background" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>'
                             '</a-assets>'
 
-                            '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true"></'+choose+'>'
+                            '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
 
                             # new or additional entities
+                            '<a-entity position="0 0 5"><a-camera><a-cursor></a-cursor></a-camera></a-entity>'
+
                             '<a-sound src="#waves" autoplay="true"></a-sound>'
                             # '<a-sound src="#background" autoplay="true"></a-sound>'
                             # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
