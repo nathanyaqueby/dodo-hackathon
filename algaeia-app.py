@@ -35,7 +35,7 @@ st.markdown("Welcome to *_Algaeia_*! Generate a VR world using the sidebar (left
             "Read more about our project on [GitHub](https://github.com/nathanyaqueby/dodo-hackathon)")
 
 # col1, col2, col3 = st.columns((1,1,2))
-st.sidebar.image("algaeia.png", use_column_width=True)
+st.sidebar.image("images\\algaeia.png", use_column_width=True)
 
 st.markdown(
     """
@@ -204,9 +204,12 @@ if __name__ == '__main__':
         audio_file, audiorec = audiorec_demo_app()
     
     with st.expander("🌊 An immersive digital speculative underwater museum"):
-        st.markdown("""
-                The project focuses on anthropogenic noise pollution affecting the underwater life, by analyzing selected data produced by maritime traffic in the Pacific ocean.<br>
-                The project is presented as a work in progress developed during the DODO Hackathon: it would like to be an invitation for visitors to dive into a speculative underwater museum, where it is possible to approach the artifacts and listen to noise produced by ships crossing the Pacific Ocean.<br>
-                In this digital environment, the objects represent both visualization and sonification of selected data by the dataset Pacific Sound (https://doi.org/10.1109/OCEANS.2016.7761363). <br>
-                The project would like to raise reflections about anthropogenic activities affecting aquatic environments, creating awareness about noise pollution, often inaudible to humans, an attempt to make more visible and hearable its impact of non-human species.
-                """)
+        st.markdown("The project focuses on anthropogenic noise pollution affecting the underwater life by analyzing selected data produced by maritime traffic in the Pacific ocean.")
+        
+        st.markdown("The project is presented as a work in progress developed during the DODO Hackathon: it would like to be an invitation for visitors to dive into a speculative underwater museum, where it is possible to approach the artifacts and listen to noise produced by ships crossing the Pacific Ocean.")
+
+        st.image("images\\screen-satellite.jpg")
+
+        st.markdown("In this digital environment, the objects represent both visualization and sonification of selected data by the dataset Pacific Sound (https://doi.org/10.1109/OCEANS.2016.7761363).")
+
+        st.markdown("The project would like to raise reflections about anthropogenic activities affecting aquatic environments, creating awareness about noise pollution, often inaudible to humans, an attempt to make more visible and hearable its impact of non-human species.")
