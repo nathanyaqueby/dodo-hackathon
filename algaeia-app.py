@@ -111,70 +111,10 @@ def audiorec_demo_app():
 ###############
 
 js1 = os.path.join("js", "webxr.js")
+js2 = os.path.join("js", "joystick.js")
+js3 = os.path.join("js", "camera-cube-env.js")
 
 if __name__ == '__main__':
-
-    components.html(f'''
-                    <!doctype html>
-                    <html lang="en">
-                        <head>
-                            <meta charset="utf-8">
-                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                            <meta name="viewport" content="width=device-width, initial-scale=1">
-                            <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-                            <script src="https://unpkg.com/aframe-sprite-particles-component@^0.5.0/aframe-sprite-particles-component.js"></script>
-                            <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
-                            <script type="text/javascript" src="{js1}"></script>
-                            <script type="text/javascript" src="../../js/joystick.js"></script>
-                            <script type="text/javascript" src="../../js/camera-cube-env.js"></script>
-                            
-                            <link rel="stylesheet" type="text/css" href="style.css">
-                        </head>
-                        <body onload="init();">
-                            <a-scene shadow="type: basic; autoUpdate: false;">
-                                <a-entity position="0 2.25 -15" particle-system="preset: dust; particleCount: 10000"></a-entity>
-                                <!-- Assets -->
-                                <a-assets>
-                                    <a-asset-item id="Cube.008" src="../assets/Cube.008.gltf"></a-asset-item>
-                                    <a-asset-item id="propeller" src="../assets/propeller.gltf"></a-asset-item>
-                                    <a-asset-item id="bottle" src="../assets/bottle.gltf"></a-asset-item>
-                                </a-assets>
-
-                                <!-- Entities -->
-                                
-                                <a-entity id="#Cube.008"  gltf-model="#Cube.008" scale="3.5 3.5 3.5" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false" ></a-entity>
-                                <a-entity id="#propeller"  gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer ></a-entity>
-                                <a-entity id="#bottle"  gltf-model="#bottle" scale="1.5 1.5 1.5" position="-0.6772575974464417 1.07643868774175644 8.007191523909568787" visible="true" shadow="cast: false" ></a-entity>
-
-                                <!-- Camera -->
-                                <a-entity id="player" 
-                                    position="0 -0.2 0" 
-                                    movement-controls="speed: 0.10000000149011612;">
-                                    <a-entity id="camera" 
-                                        camera="near: 0.001" 
-                                        position="0 1.7000000476837158 0" 
-                                        look-controls="pointerLockEnabled: true">
-                                            <a-entity id="cursor" cursor="fuse: false;" animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 	0.1 0.1 0.1; to: 1 1 1"
-                                                position="0 0 -0.1"
-                                                geometry="primitive: circle; radius: 0.001;"
-                                                material="color: #CCC; shader: flat;"
-                                                >
-                                            </a-entity>
-                                    </a-entity>
-                                        <a-entity id="leftHand" oculus-touch-controls="hand: left" vive-controls="hand: left"></a-entity>
-                                        <a-entity id="rightHand" laser-controls oculus-touch-controls="hand: right" vive-controls="hand: right" ></a-entity>
-                                </a-entity>
-
-                                <!-- Lights -->
-                                <a-entity light="intensity: 1.0; castShadow: false; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2" position="1.36586 7.17965 1"></a-entity>
-                                <a-entity light="type: ambient; intensity: 1.0"></a-entity>
-
-                                <!-- Sky -->
-                                <a-sky color= 	#0000FF ></a-sky>
-                            </a-scene>
-                        </body>
-                    </html>
-                    ''')
 
     if generator:
 
@@ -274,6 +214,74 @@ if __name__ == '__main__':
                                 '</a-scene></body></html>', height=700)
     
         audio_file, audiorec = audiorec_demo_app()
+    
+    else:
+        components.html(f'''
+                    <!doctype html>
+                    <html lang="en">
+                        <!-- Generated automatically by AFRAME Exporter for Blender - https://silverslade.itch.io/a-frame-blender-exporter -->
+                        <head>
+                            <title>DODO Hackathon</title>
+                            <link rel="icon" type="image/png" href="favicon.ico"/>
+                            <meta name="description" content="3D Application">
+                            <meta charset="utf-8">
+                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                            <meta name="viewport" content="width=device-width, initial-scale=1">
+                            <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+                            <script src="https://unpkg.com/aframe-sprite-particles-component@^0.5.0/aframe-sprite-particles-component.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+                            <script type="text/javascript" src="{js1}"></script>
+                            <script type="text/javascript" src="{js2}"></script>
+                            <script type="text/javascript" src="{js3}"></script>
+                            
+                            <link rel="stylesheet" type="text/css" href="style.css">
+                        </head>
+                        <body onload="init();">
+                            <a-scene   shadow="type: basic; autoUpdate: false;">
+                                <a-entity position="0 2.25 -15" particle-system="preset: dust; particleCount: 10000"></a-entity>
+                                <!-- Assets -->
+                                <a-assets>
+                                    <a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>
+                                    <a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>
+                                    <a-asset-item id="bottle" src="./assets/bottle.gltf"></a-asset-item>
+                                </a-assets>
+
+                                <!-- Entities -->
+                                
+                                <a-entity id="#Cube.008"  gltf-model="#Cube.008" scale="3.5 3.5 3.5" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false" ></a-entity>
+                                <a-entity id="#propeller"  gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer ></a-entity>
+                                <a-entity id="#bottle"  gltf-model="#bottle" scale="1.5 1.5 1.5" position="-0.6772575974464417 1.07643868774175644 8.007191523909568787" visible="true" shadow="cast: false" ></a-entity>
+
+                                <!-- Camera -->
+                                <a-entity id="player" 
+                                    position="0 -0.2 0" 
+                                    movement-controls="speed: 0.10000000149011612;">
+                                    <a-entity id="camera" 
+                                        camera="near: 0.001" 
+                                        position="0 1.7000000476837158 0" 
+                                        look-controls="pointerLockEnabled: true">
+                                            <a-entity id="cursor" cursor="fuse: false;" animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 	0.1 0.1 0.1; to: 1 1 1"
+                                                position="0 0 -0.1"
+                                                geometry="primitive: circle; radius: 0.001;"
+                                                material="color: #CCC; shader: flat;"
+                                                >
+                                            </a-entity>
+                                    </a-entity>
+                                        <a-entity id="leftHand" oculus-touch-controls="hand: left" vive-controls="hand: left"></a-entity>
+                                        <a-entity id="rightHand" laser-controls oculus-touch-controls="hand: right" vive-controls="hand: right" ></a-entity>
+                                </a-entity>
+
+                                <!-- Lights -->
+                                <a-entity light="intensity: 1.0; castShadow: false; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2" position="1.36586 7.17965 1"></a-entity>
+                                <a-entity light="type: ambient; intensity: 1.0"></a-entity>
+
+                                <!-- Sky -->
+                                <a-sky color= 	#0000FF ></a-sky>
+                            </a-scene>
+                        </body>
+                    </html>
+                    <!-- Generated automatically by AFRAME Exporter for Blender - https://silverslade.itch.io/a-frame-blender-exporter -->
+                    ''')
     
     with st.expander("🌊 An immersive digital speculative underwater museum"):
         st.markdown("The project focuses on anthropogenic noise pollution affecting the underwater life by analyzing selected data produced by maritime traffic in the Pacific ocean.")
