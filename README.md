@@ -14,6 +14,7 @@ Developed during the DODO Deepwaters of Digital Ocean Hackathon 2022.
 
 ## 📌 How to run
 - Go to [this link](https://nathanyaqueby-dodo-hackathon-algaeia-app-pvgkk7.streamlit.app/)
+- Make sure you have your audio turned on
 - Dive into our immersive [VR Museum]()
 - Adjust the presets in the sidebar to generate an environment
 
