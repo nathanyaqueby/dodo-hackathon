@@ -110,9 +110,11 @@ def audiorec_demo_app():
 ## Dashboard ##
 ###############
 
+js1 = os.path.join("js", "webxr.js")
+
 if __name__ == '__main__':
 
-    components.html('''
+    components.html(f'''
                     <!doctype html>
                     <html lang="en">
                         <head>
@@ -122,9 +124,9 @@ if __name__ == '__main__':
                             <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
                             <script src="https://unpkg.com/aframe-sprite-particles-component@^0.5.0/aframe-sprite-particles-component.js"></script>
                             <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
-                            <script type="text/javascript" src="js/webxr.js"></script>
-                            <script type="text/javascript" src="js/joystick.js"></script>
-                            <script type="text/javascript" src="js/camera-cube-env.js"></script>
+                            <script type="text/javascript" src="{js1}"></script>
+                            <script type="text/javascript" src="../../js/joystick.js"></script>
+                            <script type="text/javascript" src="../../js/camera-cube-env.js"></script>
                             
                             <link rel="stylesheet" type="text/css" href="style.css">
                         </head>
@@ -133,9 +135,9 @@ if __name__ == '__main__':
                                 <a-entity position="0 2.25 -15" particle-system="preset: dust; particleCount: 10000"></a-entity>
                                 <!-- Assets -->
                                 <a-assets>
-                                    <a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>
-                                    <a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>
-                                    <a-asset-item id="bottle" src="./assets/bottle.gltf"></a-asset-item>
+                                    <a-asset-item id="Cube.008" src="../assets/Cube.008.gltf"></a-asset-item>
+                                    <a-asset-item id="propeller" src="../assets/propeller.gltf"></a-asset-item>
+                                    <a-asset-item id="bottle" src="../assets/bottle.gltf"></a-asset-item>
                                 </a-assets>
 
                                 <!-- Entities -->
