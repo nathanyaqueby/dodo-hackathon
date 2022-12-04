@@ -31,7 +31,7 @@ st.set_page_config(
 )
 
 # st.title('Algaeia')
-st.markdown("Welcome to *_Algaeia_*! Generate a VR world using the sidebar (left) and explore the soundscape by moving closer or further away from objects. "
+st.markdown("Welcome to *_Algaeia_*! Generate a VR world using the sidebar (left) and explore the soundscape with your arrow keys. "
             "Read more about our project on [GitHub](https://github.com/nathanyaqueby/dodo-hackathon)")
 
 # col1, col2, col3 = st.columns((1,1,2))
@@ -139,10 +139,10 @@ if __name__ == '__main__':
                                     '<audio id="background" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>'
                                 '</a-assets>'
 
-                                '<a-assets>'
-                                    '<a-asset-item id="Cube.008" src="'+cube_path+'"></a-asset-item>'
-                                    '<a-asset-item id="propeller" src="'+prop_path+'"></a-asset-item>'
-                                '</a-assets>'
+                                # '<a-assets>'
+                                #     '<a-asset-item id="Cube.008" src="'+cube_path+'"></a-asset-item>'
+                                #     '<a-asset-item id="propeller" src="'+prop_path+'"></a-asset-item>'
+                                # '</a-assets>'
 
                                 '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
                                 '<'+choose+' position="-5 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
