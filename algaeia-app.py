@@ -105,21 +105,6 @@ def audiorec_demo_app():
 
         return wav_bytes, audiorec
 
-def writeHelp1():
-    st.write('Corresponding Code:')
-    st.header("Generated Code:")
-    st.write('<html><head>')
-    st.write('<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>')
-    st.write('<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>')
-    st.write('<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>')
-    st.write('</head><body>')
-    st.write('<a-scene>')
-    
-    
-def writeHelp2():
-    st.write('</a-scene>')
-    st.write('</body></html>') 
-
 
 ###############
 ## Dashboard ##
@@ -131,9 +116,11 @@ if __name__ == '__main__':
 
         with st.spinner('Loading...'):
 
-            fog = '<a-scene fog="type: exponential; color: #AAA"></a-scene>'
+            fog = '<a-scene fog="type: exponential; color: #064273"></a-scene>'
 
             audio_file = "hckthn1_sessione.wav"
+            cube_path = os.path.join("assets", "Cube.008.gltf")
+            prop_path = os.path.join("assets", "propeller.gltf")
             
             if choose4 == "yes":
                 components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
@@ -146,23 +133,30 @@ if __name__ == '__main__':
 
                                 # asset management system
                                 '<a-assets>'
-                                #     '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
-                                #     '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
+                                    # '<a-asset-item id="Cube.008" src="'+cube_path+'"></a-asset-item>'
+                                    # '<a-asset-item id="propeller" src="'+prop_path+'"></a-asset-item>'
                                     '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
                                     '<audio id="background" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>'
+                                '</a-assets>'
+
+                                '<a-assets>'
+                                    '<a-asset-item id="Cube.008" src="'+cube_path+'"></a-asset-item>'
+                                    '<a-asset-item id="propeller" src="'+prop_path+'"></a-asset-item>'
                                 '</a-assets>'
 
                                 '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
                                 '<'+choose+' position="-5 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
                                 '<'+choose+' position="-9 0.5 -6" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
 
+                                
+                                '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
+                                '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
+
                                 # new or additional entities
                                 '<a-entity position="0 0 5"><a-camera><a-cursor></a-cursor></a-camera></a-entity>'
 
-                                '<a-sound src="#waves" autoplay="true"></a-sound>'
+                                # '<a-sound src="#waves" autoplay="true"></a-sound>'
                                 # '<a-sound src="#background" autoplay="true"></a-sound>'
-                                # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
-                                # '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
 
                                 '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
                                 '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: hckthn1_sessione.wav; autoplay: true; loop: true">'+fog+'</a-entity>'
@@ -178,28 +172,25 @@ if __name__ == '__main__':
 
                                 # asset management system ###########################################################################################
                                 '<a-assets>'
-                                #     '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
-                                #     '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
+                                    '<a-asset-item id="Cube.008" src="'+cube_path+'"></a-asset-item>'
+                                    '<a-asset-item id="propeller" src="'+prop_path+'"></a-asset-item>'
                                     '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
+                                    '<audio id="background" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"></audio>'
                                 '</a-assets>'
 
-                                '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></>'
+                                '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
+                                '<'+choose+' position="-5 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
+                                '<'+choose+' position="-9 0.5 -6" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
 
                                 # new or additional entities #########################################################################################
+                                '<a-entity position="0 0 5"><a-camera><a-cursor></a-cursor></a-camera></a-entity>'
                                 '<a-sound src="#waves" autoplay="true"></a-sound>'
-                                # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
-                                # '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
+                                '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
+                                '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
 
                                 '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
                                 '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: '+audio_file+'; autoplay: true"></a-entity>'
                                 '</a-scene></body></html>', height=700)
-            # writeHelp1()
-            # st.write('<a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box>')
-            # st.write('<a-light type='+choose2+' color="red" position="0 5 0"></a-light>')
-            # st.write('<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross"></a-entity>')
-            # if choose4 == "yes":
-            #     st.write(fog)
-            # writeHelp2()
     
         audio_file, audiorec = audiorec_demo_app()
     
