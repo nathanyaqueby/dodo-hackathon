@@ -97,7 +97,7 @@ if __name__ == '__main__':
 
         fog = '<a-scene fog="type: exponential; color: #AAA"></a-scene>'
 
-        audio_file = "MARS-20221130T000000Z-2kHz-short_edit.mp3"
+        audio_file = "hckthn1_sessione.wav"
         
         if choose4 == "yes":
             components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
@@ -112,7 +112,7 @@ if __name__ == '__main__':
                             '<a-assets>'
                             #     '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
                             #     '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
-                                '<audio id="waves" src="MARS-20221130T000000Z-2kHz-short_edit.mp3" preload="auto"></audio>'
+                                '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
                             '</a-assets>'
 
                             '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></'+choose+'>'
@@ -123,7 +123,7 @@ if __name__ == '__main__':
                             # '<a-entity id="#propeller" gltf-model="#propeller" scale="1 1 1" position="-10.6772575974464417 0.07643868774175644 0.007191523909568787" visible="true" shadow="cast: false" animation-mixer=""></a-entity>'
 
                             '<a-light type='+choose2+' color="red" position="0 5 0"></a-light> '
-                            '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: MARS-20221130T000000Z-2kHz-short_edit.mp3; autoplay: true; preload: auto">'+fog+'</a-entity>'
+                            '<a-entity environment="preset: '+choose3+'; groundColor: #445; grid: cross" sound="src: hckthn1_sessione.wav; autoplay: true; preload: auto">'+fog+'</a-entity>'
                             '</a-scene></body></html>', height=600)
         else:
             components.html('<html><head><script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>'
@@ -138,7 +138,7 @@ if __name__ == '__main__':
                             '<a-assets>'
                             #     '<a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>'
                             #     '<a-asset-item id="propeller" src="./assets/propeller.gltf"></a-asset-item>'
-                                '<audio id="waves" src="MARS-20221130T000000Z-2kHz-short_edit.mp3" preload="auto"></audio>'
+                                '<audio id="waves" src="hckthn1_sessione.wav" preload="auto"></audio>'
                             '</a-assets>'
 
                             '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: '+audio_file+'; autoplay: true"></>'
