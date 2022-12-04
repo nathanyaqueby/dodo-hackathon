@@ -144,9 +144,9 @@ if __name__ == '__main__':
                                 #     '<a-asset-item id="propeller" src="'+prop_path+'"></a-asset-item>'
                                 # '</a-assets>'
 
-                                '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
-                                '<'+choose+' position="-5 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
-                                '<'+choose+' position="-9 0.5 -6" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 2"></'+choose+'>'
+                                '<'+choose+' position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 3"></'+choose+'>'
+                                '<'+choose+' position="-5 0.5 -3" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 3"></'+choose+'>'
+                                '<'+choose+' position="-9 0.5 -6" rotation="0 0 0" color="#4CC3D9" sound="src: #background; autoplay: true; loop: true; volume: 3"></'+choose+'>'
 
                                 
                                 # '<a-entity id="#Cube.008" gltf-model="#Cube.008" scale="2 2 2" position="-0.6772575974464417 1.07643868774175644 1.007191523909568787" visible="true" shadow="cast: false"></a-entity>'
