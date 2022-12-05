@@ -25,6 +25,12 @@ Developed during the DODO Deepwaters of Digital Ocean Hackathon 2022.
 - Sara Rutz
 - Nathanya Queby Satriani
 
+## ℹ Dataset
+[MBARI Pacific Sound](https://docs.mbari.org/pacific-sound/)
+
+J. Ryan et al., "New Passive Acoustic Monitoring in Monterey Bay National Marine Sanctuary," OCEANS 2016 MTS/IEEE Monterey, 2016, pp. 1-8, doi: 10.1109/OCEANS.2016.7761363.
+
+---------------------------------
 ### More about DODO
 Deepwaters of Digital Ocean (DODO) is a week-long research-based series of events focused on engagement with exponential technologies. 
 DODO operates on the intersections of art–technology–science–society and works through three clusters – AI, virtual realities, and blockchains – for ideas and investigations into the Ocean. With an emphasis on multidisciplinarity, innovation, and regenerative solutions, we intend to establish new proposals 
