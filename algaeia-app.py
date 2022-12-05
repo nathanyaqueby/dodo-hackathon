@@ -32,9 +32,9 @@ st.set_page_config(
 )
 
 # st.title('Algaeia')
-st.markdown("Welcome to *_Algaeia_*! Click the button below to visit our immersive museum."
+st.markdown("Welcome to *_Algaeia_*! Click [here](https://www.sararutz.ch/DODO/index.html) to dive into our immersive museum."
             " You can also generate a VR world using the sidebar (left) and explore the soundscape with your arrow keys. "
-            "Read more about our project on [GitHub](https://github.com/nathanyaqueby/dodo-hackathon)")
+            "Read more about our project on [GitHub](https://github.com/nathanyaqueby/dodo-hackathon).")
 
 # col1, col2, col3 = st.columns((1,1,2))
 st.sidebar.image(os.path.join("images", "algaeia.png"), use_column_width=True)
@@ -50,10 +50,10 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-url = 'https://www.sararutz.ch/DODO/index.html'
+# url = 'https://www.sararutz.ch/DODO/index.html'
 
-if st.button('Visit the VR museum'):
-    webbrowser.open_new_tab(url)
+# if st.button('Visit the VR museum'):
+#     webbrowser.open_new_tab(url)
 
 with st.sidebar.form(key='Form1'):
     st.title("🌏 VR world generator")
